@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/adverts-app/static/css/main.7acaea2f.css",
+    "main.js": "/adverts-app/static/js/main.07d3183d.js",
+    "index.html": "/adverts-app/index.html",
+    "main.7acaea2f.css.map": "/adverts-app/static/css/main.7acaea2f.css.map",
+    "main.07d3183d.js.map": "/adverts-app/static/js/main.07d3183d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.07d3183d.js"
+  ]
+}
