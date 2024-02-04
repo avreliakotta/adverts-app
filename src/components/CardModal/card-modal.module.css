@@ -1,0 +1,116 @@
+.carImage{
+    width:461px;
+    height:248px;
+    border-radius: 14px;
+    margin-bottom: 14px;
+}
+
+.titleCard{
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.33;
+    color: #121417;
+    margin-bottom: 8px;
+}
+.model{
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.33;
+    color: #3470ff;
+}
+.text{
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.50;
+    color: rgba(18, 20, 23, 0.5);
+}
+.contentWrapper{
+    display:flex;
+    gap:12px;
+    margin-bottom:4px;
+}
+.descriptionText{
+font-family: var(--font-family);
+font-weight: 400;
+font-size: 14px;
+line-height: 1.43;
+color: #121417;
+margin-bottom: 24px;
+}
+.infoWrapper{
+    display: flex;
+    gap:12px;
+    margin-bottom:14px ;
+}
+.subtitle{
+font-family: var(--font-family);
+font-weight: 500;
+font-size: 14px;
+line-height: 1.43;
+color: #121417;
+margin-bottom: 8px;
+}
+.functionalitiesWrapper{
+    display: flex;
+    gap:12px;
+    margin-bottom: 24px;
+}
+.specifications{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+    color: #363535;
+    border-radius: 35px;
+    padding: 7px 14px;
+    background: #f9f9f9;
+}
+.part{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+    color: #363535;
+    
+}
+
+.number{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+    color: var(--brand-color);
+}
+.specificationsWrapper{
+    display: flex;
+    flex-wrap: wrap;
+    width:461px;
+    gap:8px;
+    margin-bottom:24px ;
+}
+.rentalBtn{
+border-radius: 12px;
+padding: 12px 50px;
+width: 168px;
+height: 44px;
+background: var(--brand-color);
+border:none;
+cursor: pointer;
+font-family: var(--font-family);
+font-weight: 600;
+font-size: 14px;
+line-height: 1.43;
+color:var(--invent-color);
+text-decoration: none;
+transition: background-color var(--transition-duration) var( --transition-time-function);
+}
+.rentalBtn:hover,.rentalBtn:focus{
+    background-color:var(active-color) ;
+}

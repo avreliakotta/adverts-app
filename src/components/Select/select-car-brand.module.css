@@ -1,0 +1,78 @@
+.container {
+  width: 859px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  gap: 18px;
+  align-items: flex-end;
+}
+
+.selectLabel {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  color: var(--label-color);
+}
+.select {
+  border: none;
+  border-radius: 14px;
+  padding: 14px 89px 14px 18px;
+  width: 224px;
+  height: 48px;
+  background: var(--from-to-color);
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.11;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.iconWrapper {
+  position: relative;
+}
+
+.selectWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+select option.defaultOption {
+  color: #121417;
+}
+select option.brandOption {
+  color: var(card-text-color);
+}
+.searchBtn {
+  border-radius: 12px;
+  padding: 14px 44px;
+  width: 136px;
+  height: 48px;
+  cursor: pointer;
+  border: none;
+  background: var(--brand-color);
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.43;
+  color: var(--invent-color);
+  display: block;
+  transition: background-color var(--transition-duration)
+    var(transition-time-function);
+}
+.searchBtn:hover,
+.searchBtn:focus {
+  background-color: var(--active-color);
+}
+.selectIcon {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+stroke: #000;
+}

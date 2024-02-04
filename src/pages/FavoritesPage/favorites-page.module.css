@@ -1,0 +1,26 @@
+.container{
+    width:1440px;
+    padding-left: 128px;
+    padding-right:128px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top:100px;
+    padding-bottom:150px ;
+}
+.favoriteList{
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px 29px ;
+    margin-bottom: 100px;
+}
+.mainTitle{
+    margin-bottom: 60px;
+    font-family:var(--font-family);
+    text-align: center;
+    font-size: 46px;
+    font-weight: 600;
+    line-height: 1.43;
+    color:var(--main-color);
+}
+

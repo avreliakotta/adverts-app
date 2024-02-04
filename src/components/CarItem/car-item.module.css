@@ -1,0 +1,83 @@
+.carImage {
+  width: 274px;
+  height: 268px;
+  border-radius: 14px;
+  margin-bottom: 14px;
+}
+.imgWrapper {
+  position: relative;
+  width: 274px;
+}
+.titleCard {
+  color: var(--main-color);
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+}
+.model {
+  color: var(--brand-color);
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}
+.contentWrapper {
+  width: 265px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.addressWrapper {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+.infoWrapper {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.learnMoreBtn {
+  padding: 12px 99px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--brand-color);
+  color: var(--invent-color);
+  font-family: Manrope, sans serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.43; /* 142.857% */
+  cursor: pointer;
+  transition: background-color var(--transition-duration)
+    var(transition-time-function);
+}
+.learnMoreBtn:hover,
+.learnMoreBtn:focus {
+  background-color: var(--active-color);
+}
+.text {
+  color: rgba(18, 20, 23, 0.5);
+  font-family: Manrope;
+  font-size: 12px;
+
+  font-weight: 400;
+  line-height: 1.5; /* 150% */
+}
+.iconBtn {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+}
+.heartIcon {
+  width: 18px;
+  height: 18px;
+}
