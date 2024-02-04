@@ -30,13 +30,16 @@ const carBrandOptions = [
   'Land',
 ];
 
-export const SelectCarBrand = ({ selectedBrand, onChange, onReset }) => {
+export const SelectCarBrand = ({ selectedBrand, onChange,onSearch }) => {
   const dispatch = useDispatch();
   // eslint-disable-next-line no-unused-vars
   const [searchText,setSearchText] = useState('');
 
   const handleSearchClick = () => {
     dispatch(setBrand(searchText));
+    if (onSearch) {
+      onSearch();
+    }
   };
 
   return (

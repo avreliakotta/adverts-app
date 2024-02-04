@@ -1,5 +1,5 @@
 import css from './catalog-page.module.css';
-import { useEffect} from 'react';
+import { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAll, loadMore } from '../../redux/adverts/adverts-operations';
@@ -25,12 +25,16 @@ const CatalogPage = () => {
     const brand = event.target.value;
     dispatch(setBrand(brand));
   };
+  const handleSearch = () => {
+    dispatch(setBrand(''));
+  };
 
   return (
     <div className={css.container}>
       <SelectCarBrand
         selectedBrand={selectedBrand}
         onChange={handleBrandChange}
+        onSearch={handleSearch}
       />
       <CarList selectedBrand={selectedBrand} />
       {adverts.loading ? (
