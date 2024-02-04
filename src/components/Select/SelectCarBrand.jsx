@@ -1,5 +1,5 @@
 import css from './select-car-brand.module.css';
-
+import {useState} from "react";
 import { useDispatch } from 'react-redux';
 import { setBrand } from '../../redux/filter/filter-slise';
 import sprite from '../../img/symbol-defs.svg';
@@ -32,9 +32,11 @@ const carBrandOptions = [
 
 export const SelectCarBrand = ({ selectedBrand, onChange, onReset }) => {
   const dispatch = useDispatch();
+  // eslint-disable-next-line no-unused-vars
+  const [searchText,setSearchText] = useState('');
 
   const handleSearchClick = () => {
-    dispatch(setBrand(selectedBrand));
+    dispatch(setBrand(searchText));
   };
 
   return (
