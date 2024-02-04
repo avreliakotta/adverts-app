@@ -1,10 +1,10 @@
 import css from './select-car-brand.module.css';
-import { useState } from 'react';
+
 import { useDispatch } from 'react-redux';
 import { setBrand } from '../../redux/filter/filter-slise';
 import sprite from '../../img/symbol-defs.svg';
-import SelectRentalPrice from "./SelectRentalPrice/SelectRentalPrice";
-import RangeInput from "../RangeInput/RangeInput";
+import SelectRentalPrice from './SelectRentalPrice/SelectRentalPrice';
+import RangeInput from '../RangeInput/RangeInput';
 const carBrandOptions = [
   'Buick',
   'Volvo',
@@ -30,60 +30,51 @@ const carBrandOptions = [
   'Land',
 ];
 
-
 export const SelectCarBrand = ({ selectedBrand, onChange, onReset }) => {
   const dispatch = useDispatch();
-  const [searchText, setSearchText] = useState('');
 
   const handleSearchClick = () => {
-    dispatch(setBrand(searchText));
+    dispatch(setBrand(selectedBrand));
   };
 
   return (
     <div className={css.container}>
-        {/* <div className={css.additionWrapper}> */}
       <div className={css.selectWrapper}>
-      
         <label htmlFor="Brand" className={css.selectLabel}>
           Car brand
         </label>
-        
-          <div className={css.iconWrapper}>
-            <select
-              name="brand"
-              id="brand"
-              value={selectedBrand}
-              onChange={onChange}
-              className={css.select}
-            >
-              <option value="" disabled hidden className={css.defaultOption}>
-                Enter the text
-              </option>
-              {carBrandOptions.map((brand, index) => (
-                <option className={css.brandOption} key={index} value={brand}>
-                  {brand}
-                </option>
-              ))}
-            </select>
-            <svg className={css.selectIcon}>
-              <use href={`${sprite}#icon-chevron-down-1`}></use>
-            </svg>
-          </div>
-          </div>
-          <SelectRentalPrice/>
-          <RangeInput/>
-          <button
-            type="button"
-            className={css.searchBtn}
-            onClick={handleSearchClick}
+
+        <div className={css.iconWrapper}>
+          <select
+            name="brand"
+            id="brand"
+            value={selectedBrand}
+            onChange={onChange}
+            className={css.select}
           >
-            Search
-          </button>
+            <option value="" disabled hidden className={css.defaultOption}>
+              Enter the text
+            </option>
+            {carBrandOptions.map((brand, index) => (
+              <option className={css.brandOption} key={index} value={brand}>
+                {brand}
+              </option>
+            ))}
+          </select>
+          <svg className={css.selectIcon}>
+            <use href={`${sprite}#icon-chevron-down-1`}></use>
+          </svg>
         </div>
-     
-    //   </div>
-    
+      </div>
+      <SelectRentalPrice />
+      <RangeInput />
+      <button
+        type="button"
+        className={css.searchBtn}
+        onClick={handleSearchClick}
+      >
+        Search
+      </button>
+    </div>
   );
 };
-
-
