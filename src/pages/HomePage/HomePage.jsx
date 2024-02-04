@@ -1,7 +1,6 @@
 import SwiperComponent from '../../components/Swiper/Swiper';
 import css from './home-page.module.css';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { useSelector } from 'react-redux';
+
 
 const HomePage = () => {
   return(
