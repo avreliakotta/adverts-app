@@ -24,7 +24,7 @@ const carBrandOptions = [
   'Audi',
   'BMW',
   'Chevrolet',
-  'Mercedes-Benz',
+  'Land Rover',
   'Chrysler',
   'Kia',
   'Land',

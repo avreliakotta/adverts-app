@@ -67,12 +67,13 @@ const CarItem = ({ carData, index}) => {
             )}
           </svg>
         </button>
-        <div className={css.contentWrapper}></div>
+        <div className={css.contentWrapper}>
         <h2 className={css.titleCard}>
           {carData.make} <span className={css.model}>{carData.model}</span>,{' '}
           {carData.year}
         </h2>
         <p className={css.titleCard}>{`${carData.rentalPrice}`}</p>
+        </div>
       </div>
       <div className={css.addressWrapper}>
         <p className={css.text}>{`${city}`}</p>
