@@ -32,7 +32,7 @@ const SelectRentalPrice=()=>{
                 ))}
               </select>
               <svg className={css.selectIcon}>
-                <use href={`${sprite}#icon-chevron-down-1`}></use>
+                <use href={`${sprite}#icon-chevron-down`}></use>
               </svg>
             </div>
           </div>

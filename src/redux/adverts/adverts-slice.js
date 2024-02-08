@@ -1,10 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchAll,loadMore  } from './adverts-operations';
+import { fetchAll } from './adverts-operations';
 const initialState = {
   item: [],
   loading: false,
   error: null,
-  page:1
 };
 const advertsSlice = createSlice({
   name: 'adverts',
@@ -17,23 +16,13 @@ const advertsSlice = createSlice({
       })
       .addCase(fetchAll.fulfilled, (state, { payload }) => {
         state.loading = false;
-        state.item = payload;
+
+        const uniquePayload = payload.filter(
+          item => !state.item.some(existingItem => existingItem.id === item.id)
+        );
+        state.item = [...state.item, ...uniquePayload];
       })
       .addCase(fetchAll.rejected, (state, { payload }) => {
-        state.loading = false;
-        state.error = payload;
-      })
-      .addCase(loadMore.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(loadMore.fulfilled, (state, { payload }) => {
-        state.loading = false;
-        
-        state.item=payload;
-        state.page++; 
-      })
-      .addCase(loadMore.rejected, (state, { payload }) => {
         state.loading = false;
         state.error = payload;
       });

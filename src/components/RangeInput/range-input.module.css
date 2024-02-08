@@ -24,8 +24,7 @@
   background: var(--from-to-color);
   text-align: center;
 }
-.from::placeholder,
-.to::placeholder {
+input::placeholder{
   color: #121417;
   font-family: var(--font-family);
   font-weight: 500;

@@ -35,20 +35,21 @@ const CardModal = ({ carData }) => {
         <p className={css.text}>Type: {carData.type}</p>
       </div>
       <div className={css.infoWrapper}>
-        <p className={css.text}>Fuel Consumption:{carData.fuelConsumption} </p>
-        <p className={css.text}>Engine Size:{carData.engineSize} </p>
+        <p className={css.text}>Fuel Consumption: {carData.fuelConsumption} </p>
+        <p className={css.text}>Engine Size: {carData.engineSize} </p>
       </div>
       <p className={css.descriptionText}>{carData.description}</p>
       <h3 className={css.subtitle}>Accessories and functionalities:</h3>
-      <div className={css.contentWrapper}>
+     
+      <div className={css.functionalitiesWrapper}>
         <p className={css.text}>{carData.accessories[0]}</p>
         <p className={css.text}>{carData.accessories[1]} </p>
         <p className={css.text}>{carData.accessories[2]} </p>
-      </div>
-      <div className={css.functionalitiesWrapper}>
+      
         <p className={css.text}>{carData.functionalities[0]}</p>
         <p className={css.text}>{carData.functionalities[1]}</p>
         <p className={css.text}>{carData.functionalities[2]}</p>
+    
       </div>
       <h3 className={css.subtitle}>Rental Conditions: </h3>
       <div className={css.specificationsWrapper}>
