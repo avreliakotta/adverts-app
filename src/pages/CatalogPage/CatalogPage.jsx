@@ -9,26 +9,21 @@ import { setBrand } from '../../redux/filter/filter-slise';
 import { selectAutoBrand } from '../../redux/favorites/favorites-selectors';
 const CatalogPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(null);
+  
 
   const dispatch = useDispatch();
   const selectedBrand = useSelector(selectAutoBrand);
   const adverts = useSelector(state => state.adverts.item);
 
   // useEffect(() => {
-   
+
   //   dispatch(fetchAll({ page: currentPage, limit: 12 }));
   // }, [dispatch,currentPage]);
- 
-  useEffect(() => {
-  
-      dispatch(fetchAll({ page: currentPage, limit: 12 }));
-    
-    
 
-  
+  useEffect(() => {
+    dispatch(fetchAll({ page: currentPage, limit: 12 }));
   }, [dispatch, currentPage]);
- 
+
   const loadMoreAdverts = () => {
     const nextPage = currentPage + 1;
     dispatch(fetchAll({ page: nextPage, limit: 12 }));
@@ -43,8 +38,8 @@ const CatalogPage = () => {
   const handleSearch = () => {
     dispatch(setBrand(''));
   };
-
-  
+  const totalPage=adverts.length;
+  const lastPage = totalPage/12 < currentPage;
 
   return (
     <div className={css.container}>
@@ -53,23 +48,19 @@ const CatalogPage = () => {
         onChange={handleBrandChange}
         onSearch={handleSearch}
       />
-      <CarList
-        selectedBrand={selectedBrand}
-       
-      />
-      
-      <button
+      <CarList selectedBrand={selectedBrand} />
+{!lastPage ?
+      (<button
         type="button"
         className={css.loadMoreBtn}
         onClick={loadMoreAdverts}
         disabled={adverts.loading}
       >
         Load more
-      </button>
-    
+      </button>)
+      : ""}
     </div>
   );
 };
 
 export default CatalogPage;
-
