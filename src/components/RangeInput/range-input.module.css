@@ -10,8 +10,12 @@
   width: 160px;
   height: 48px;
   background: var(--from-to-color);
-
   text-align: center;
+  color: #121417;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.11;
 }
 
 
@@ -23,14 +27,13 @@
   border: none;
   background: var(--from-to-color);
   text-align: center;
-}
-input::placeholder{
   color: #121417;
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 18px;
   line-height: 1.11;
 }
+
 
 .label {
   font-family: var(--font-family);

@@ -6,6 +6,7 @@
   display: flex;
   gap: 18px;
   align-items: flex-end;
+  justify-content: center;
 }
 
 .selectLabel {
@@ -16,6 +17,7 @@
   color: var(--label-color);
 }
 .select {
+ 
   border: none;
   border-radius: 14px;
   padding: 14px 89px 14px 18px;
@@ -26,11 +28,43 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 1.11;
-
-  -webkit-appearance: none;
+ /* -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none;
+  appearance: none; */
+  margin-bottom: 4px;
+  outline:none;
+
 }
+.optionListOpen,  .optionListClosed {
+position:absolute;
+border: 1px solid rgba(18, 20, 23, 0.05);
+border-radius: 14px;
+width: 224px;
+max-height:272px;;
+height: auto;
+box-shadow: 0 4px 36px 0 rgba(0, 0, 0, 0.02);
+background: #fff;
+padding:14px 12px 14px 18px;
+display: flex;
+flex-direction: column;
+gap:8px;
+cursor: pointer;
+z-index: 100;
+overflow-y: auto; 
+} 
+
+.optionListOpen::-webkit-scrollbar {
+  width: 8px; 
+height:130px;
+
+margin-right: 12px;
+  
+}
+.optionListOpen::-webkit-scrollbar-thumb {
+  background-color: rgba(18, 20, 23, 0.05);; 
+  border-radius: 10px; 
+}
+
 .iconWrapper {
   position: relative;
 }
@@ -41,10 +75,10 @@
   gap: 8px;
 }
 
-select option.defaultOption {
+.brandOption:hover,.brandOption:focus {
   color: #121417;
 }
-select option.brandOption {
+.brandOption {
   color: var(card-text-color);
 }
 .searchBtn {
@@ -75,4 +109,28 @@ select option.brandOption {
   top: 14px;
   right: 14px;
 
+}
+.buttonList{
+  display:flex;
+  gap:8px;
+}
+.iconDown{
+transform: rotate(180deg);
+}
+.optionListOpen {
+  display:block; 
+}
+ .optionListClosed{
+  display: none;
+  
+} 
+
+
+
+.brandOption{
+font-family: var(--font-family);
+font-weight: 500;
+font-size: 16px;
+line-height: 125%;
+color: rgba(18, 20, 23, 0.2);
 }

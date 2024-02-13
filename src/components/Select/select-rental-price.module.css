@@ -78,3 +78,6 @@ select option.brandOption {
   right: 14px;
   
 }
+.iconDown{
+  transform: rotate(180deg);
+  }

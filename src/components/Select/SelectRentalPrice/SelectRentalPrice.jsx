@@ -4,7 +4,7 @@ import sprite from '../../../img/symbol-defs.svg';
 const priceOptions = [30, 40, 50, 60, 70, 80, 90, 100];
 const SelectRentalPrice=()=>{
   const [selectedValue, setSelectedValue] = useState('');
-
+  const [isOpen, setIsOpen] = useState(false);
   const handleChange = (event) => {
     const { value } = event.target;
     setSelectedValue(value);
@@ -21,6 +21,8 @@ const SelectRentalPrice=()=>{
                 id="price"
                 value={selectedValue} onChange={handleChange}
                 className={css.select}
+                onFocus={() => setIsOpen(true)}
+                onBlur={() => setIsOpen(false)}
               >
                 <option value="" disabled hidden className={css.defaultOption}>
                   Price $
@@ -31,9 +33,13 @@ const SelectRentalPrice=()=>{
                   </option>
                 ))}
               </select>
-              <svg className={css.selectIcon}>
-                <use href={`${sprite}#icon-chevron-down`}></use>
-              </svg>
+              <svg
+            className={`${css.selectIcon} ${
+              isOpen ? css.selectIcon : css.iconDown
+            }`}
+          >
+            <use href={`${sprite}#icon-chevron-down`}></use>
+          </svg>
             </div>
           </div>
        
