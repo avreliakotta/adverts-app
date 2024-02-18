@@ -1,9 +1,1 @@
-const step = 10;
-const maxPrice = 450;
-const priceOptions = [];
-export const makePriceOptions=()=>{
-for (let i = step; i <= maxPrice; i += step) {
-  priceOptions.push(i);
-}
-return priceOptions;
-}
+export const priceOptions=[10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,210,220,230,240,250,260,270,280,290,300]

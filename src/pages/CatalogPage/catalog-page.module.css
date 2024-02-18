@@ -26,3 +26,12 @@
 .loadMoreBtn:hover,.loadMoreBtn:focus{
     color:var(--active-color);
 }
+.message{
+    font-family: Manrope;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color:var(--main-color);
+    text-align: center;
+    margin-top: -100px;
+}

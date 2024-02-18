@@ -7,7 +7,7 @@ import sprite from '../../../img/symbol-defs.svg';
 import { carBrandOptions } from './carBrandOptions';
 import { selectAutoFilters } from '../../../redux/favorites/favorites-selectors';
 
-import { makePriceOptions } from './priceOptions';
+import { priceOptions } from './priceOptions';
 
 export const SelectCarBrand = () => {
   const dispatch = useDispatch();
@@ -25,7 +25,7 @@ export const SelectCarBrand = () => {
 
   const [isBrandOpen, setIsBrandOpen] = useState(false);
   const [isPriceOpen, setIsPriceOpen] = useState(false);
-  const priceOptions = makePriceOptions();
+ 
 
   const handleSearchClick = () => {
     dispatch(setFilters({ brand, price, mileageFrom, mileageTo }));
@@ -106,12 +106,12 @@ export const SelectCarBrand = () => {
             className={css.select}
             placeholder="Enter the text"
           />
-
-          <ul
-            className={`${css.optionList} ${
+        <div  className={`${css.optionList} ${
               isBrandOpen ? css.optionListOpen : css.optionListClosed
             }`}
-            onMouseDown={handleBrandOptionClick}
+            onMouseDown={handleBrandOptionClick}>
+          <ul className={css.brandList}
+           
           >
             {carBrandOptions.map((brand, index) => (
               <li className={css.brandOption} key={index}>
@@ -119,7 +119,7 @@ export const SelectCarBrand = () => {
               </li>
             ))}
           </ul>
-
+          </div>
           <svg
             className={`${css.selectIcon} ${
               isBrandOpen ? css.selectIcon : css.iconDown
@@ -146,12 +146,12 @@ export const SelectCarBrand = () => {
             className={css.select}
             placeholder="Price $"
           />
-
-          <ul
-            className={`${css.optionList} ${
-              isPriceOpen ? css.optionListOpen : css.optionListClosed
+  <div className={`${css.optionList} ${
+              isPriceOpen ? css.optionPriceListOpen : css.optionPriceListClosed
             }`}
-            onMouseDown={handlePriceOptionClick}
+            onMouseDown={handlePriceOptionClick}>
+          <ul className={css.priceList}
+            
           >
             {priceOptions.map((num, index) => (
               <li className={css.brandOption} key={index} value={num}>
@@ -159,6 +159,7 @@ export const SelectCarBrand = () => {
               </li>
             ))}
           </ul>
+          </div>
           <svg
             className={`${css.selectIcon} ${
               isPriceOpen ? css.selectIcon : css.iconDown
@@ -174,18 +175,20 @@ export const SelectCarBrand = () => {
           Car mileage / km
         </label>
         <div className={css.inputContainer}>
+       
           <input
             type="text"
             name="mileageFrom"
-            value={`From  ${mileageFrom}`}
+            value={mileageFrom}
             placeholder="From"
             className={css.from}
             onChange={handleChange}
           />
+          
           <input
             type="text"
             name="mileageTo"
-            value={`To ${mileageTo}`}
+            value={mileageTo}
             placeholder="To"
             className={css.to}
             onChange={handleChange}

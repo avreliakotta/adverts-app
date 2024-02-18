@@ -8,6 +8,7 @@ import { SelectCarBrand } from '../../components/Select/FilterCarBrand/FilterCar
 import { selectVisibleAdverts} from "../../redux/adverts/adverts-selectors";
 
 
+
 const CatalogPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   
@@ -29,6 +30,7 @@ const CatalogPage = () => {
     setCurrentPage(nextPage);
   };
 
+
   
   const totalPage=adverts.length;
   const lastPage = totalPage/12 < currentPage;
@@ -37,9 +39,12 @@ const CatalogPage = () => {
     <div className={css.container}>
       <SelectCarBrand
         />
-      {/* <CarList selectedBrand={selectedBrand} selectedPrice={selectedPrice}  /> */}
+    
       <CarList  filteredAdverts={filteredAdverts}/>
-{!lastPage ?
+      {filteredAdverts.length === 0 && (
+        <div className={css.message}>There are no adverts for your request.Try setting other search parameters</div>
+      )}
+{!lastPage && filteredAdverts.length > 0 ?
       (<button
         type="button"
         className={css.loadMoreBtn}
