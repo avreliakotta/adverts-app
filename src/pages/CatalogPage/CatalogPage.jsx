@@ -4,15 +4,17 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAll } from '../../redux/adverts/adverts-operations';
 import CarList from '../../components/CarList/CarList';
-import { SelectCarBrand } from '../../components/Select/SelectCarBrand';
-// import { setBrand } from '../../redux/filter/filter-slise';
-import { selectAutoBrand } from '../../redux/favorites/favorites-selectors';
+import { SelectCarBrand } from '../../components/Select/FilterCarBrand/FilterCarBrand';
+import { selectVisibleAdverts} from "../../redux/adverts/adverts-selectors";
+
+
 const CatalogPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   
 
   const dispatch = useDispatch();
-  const selectedBrand = useSelector(selectAutoBrand);
+  const filteredAdverts = useSelector( selectVisibleAdverts);
+
   const adverts = useSelector(state => state.adverts.item);
 
  
@@ -27,14 +29,7 @@ const CatalogPage = () => {
     setCurrentPage(nextPage);
   };
 
-  // const handleBrandChange = event => {
-  //   const brand = event.target.value;
-  //   dispatch(setBrand(brand));
-  // };
-
-  // const handleSearch = () => {
-  //   dispatch(setBrand(''));
-  // };
+  
   const totalPage=adverts.length;
   const lastPage = totalPage/12 < currentPage;
 
@@ -42,7 +37,8 @@ const CatalogPage = () => {
     <div className={css.container}>
       <SelectCarBrand
         />
-      <CarList selectedBrand={selectedBrand} />
+      {/* <CarList selectedBrand={selectedBrand} selectedPrice={selectedPrice}  /> */}
+      <CarList  filteredAdverts={filteredAdverts}/>
 {!lastPage ?
       (<button
         type="button"

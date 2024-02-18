@@ -1,0 +1,173 @@
+.container {
+  width: 859px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  gap: 18px;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.selectLabel {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  color: var(--label-color);
+}
+.select {
+  position: relative;
+  border: none;
+  border-radius: 14px;
+  padding: 14px 89px 14px 18px;
+  width: 224px;
+  height: 48px;
+  background: var(--from-to-color);
+  font-family: var(--font-family);
+  color: var(--main-color);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.11;
+  
+  margin-bottom: 4px;
+  outline: none;
+}
+.optionListOpen,
+.optionListClosed {
+  position: absolute;
+
+  border: 1px solid rgba(18, 20, 23, 0.05);
+  border-radius: 14px;
+  width: 224px;
+  max-height: 272px;
+
+  box-shadow: 0 4px 36px 0 rgba(0, 0, 0, 0.02);
+  background: var(--invent-color);
+  padding: 14px 12px 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  cursor: pointer;
+  z-index: 100;
+  overflow-y: auto;
+}
+
+.optionListOpen::-webkit-scrollbar {
+  width: 8px;
+  height: 130px;
+}
+.optionListOpen::-webkit-scrollbar-thumb {
+  background-color: rgba(18, 20, 23, 0.05);
+  border-radius: 10px;
+}
+
+.iconWrapper {
+  position: relative;
+}
+
+.selectWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.brandOption:hover,
+.brandOption:focus {
+  color: var(--main-color);
+}
+.brandOption {
+  color: var(--card-text-color);
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+}
+.searchBtn {
+  border-radius: 12px;
+  padding: 14px 44px;
+  width: 136px;
+  height: 48px;
+  cursor: pointer;
+  border: none;
+  background: var(--brand-color);
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.43;
+  color: var(--invent-color);
+  display: block;
+  transition: background-color var(--transition-duration)
+    var(transition-time-function);
+}
+.searchBtn:hover,
+.searchBtn:focus {
+  background-color: var(--active-color);
+}
+.selectIcon {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+}
+.buttonList {
+  display: flex;
+  gap: 8px;
+}
+.iconDown {
+  transform: rotate(180deg);
+}
+.optionListOpen {
+  display: block;
+}
+.optionListClosed {
+  display: none;
+}
+.range {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.from {
+  border: none;
+  border-right: 1px solid var(--border-color);
+  border-radius: 14px 0 0 14px;
+  width: 160px;
+  height: 48px;
+  background: var(--from-to-color);
+  text-align: center;
+  color: #121417;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.11;
+  outline:none;
+}
+
+
+.to {
+  border-radius: 0 14px 14px 0;
+  width: 160px;
+  height: 48px;
+  outline:none;
+  border: none;
+  background: var(--from-to-color);
+  text-align: center;
+  color: #121417;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.11;
+}
+.label {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  color: var(--label-color);
+}
+.inputContainer {
+  display: flex;
+  align-items: center;
+}

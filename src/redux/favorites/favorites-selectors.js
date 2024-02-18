@@ -1,2 +1,2 @@
 export const selectFavorites=(state)=>state.favorites.items;
-export const selectAutoBrand=state => state.filter.selectedBrand
+export const selectAutoFilters = state => state.filter;

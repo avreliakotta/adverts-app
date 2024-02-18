@@ -9,11 +9,14 @@
 .text{
     font-family: var(--font-family);
     font-weight: 500;
-    font-size: 28px;
+    font-size: 18px;
     line-height: 1.43;
     color: var(--main-color);
     margin-bottom:50px;
+    width:400px;
     text-align: center;
+    margin-right: auto;
+    margin-left: auto;
 }
 .mainTitle{
     margin-bottom: 20px;
@@ -24,3 +27,4 @@
     line-height: 1.43;
     color:var(--main-color);
 }
+

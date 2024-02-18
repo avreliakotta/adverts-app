@@ -1,13 +1,15 @@
 import css from './car-list.module.css';
 import { useSelector } from 'react-redux';
 import CarItem from '../CarItem/CarItem';
+import { selectAutoFilters} from '../../redux/favorites/favorites-selectors';
 
 import { selectAdverts } from '../../redux/adverts/adverts-selectors';
 
-const CarList = ({ selectedBrand }) => {
+const CarList = ({filteredAdverts}) => {
   const carDataList = useSelector(selectAdverts);
+
  
-  
+ 
   if (!carDataList) {
     return <div>Loading...</div>;
   }
@@ -16,10 +18,13 @@ const CarList = ({ selectedBrand }) => {
   return (
     <>
       <ul className={css.list}>
-        {carDataList &&
-          carDataList
+        {filteredAdverts &&
+          filteredAdverts
 
-            .filter(carData => !selectedBrand || carData.make === selectedBrand)
+            // .filter(carData => !brand || carData.make === brand)
+            
+           
+
             .map((carData, index) => {
               return (
                 <CarItem

@@ -13,16 +13,23 @@ import {
 import { advertsReducer } from './adverts/adverts-slice';
 import { favoritesReducer } from './favorites/favorites-slice';
 import filterReducer from './filter/filter-slise';
-const persistConfig = {
+const  favoritesPersistConfig = {
   key: 'favorites',
   storage,
+  
 };
-const persistedReducer = persistReducer(persistConfig, favoritesReducer);
+const filterPersistConfig = {
+  key: 'filter',
+  storage,
+};
+
+const persistedFavoritesReducer = persistReducer( favoritesPersistConfig, favoritesReducer);
+const persistedFilterReducer = persistReducer(filterPersistConfig, filterReducer);
 export const store = configureStore({
   reducer: {
     adverts: advertsReducer,
-    favorites: persistedReducer,
-    filter: filterReducer,
+    favorites: persistedFavoritesReducer,
+    filter:persistedFilterReducer ,
   },
   middleware: getDefaultMiddleware =>
   getDefaultMiddleware({
