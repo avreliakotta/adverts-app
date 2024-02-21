@@ -6,7 +6,7 @@ import sprite from '../../../img/symbol-defs.svg';
 
 import { carBrandOptions } from './carBrandOptions';
 import { selectAutoFilters } from '../../../redux/favorites/favorites-selectors';
-
+import toast from 'react-hot-toast';
 import { priceOptions } from './priceOptions';
 
 export const SelectCarBrand = () => {
@@ -25,7 +25,6 @@ export const SelectCarBrand = () => {
 
   const [isBrandOpen, setIsBrandOpen] = useState(false);
   const [isPriceOpen, setIsPriceOpen] = useState(false);
- 
 
   const handleSearchClick = () => {
     dispatch(setFilters({ brand, price, mileageFrom, mileageTo }));
@@ -36,6 +35,11 @@ export const SelectCarBrand = () => {
     } else {
       setMileageTo(value);
     }
+    setTimeout(() => {
+      toast.error('"From" should be less or equal "To"', {
+        position: 'top-center',
+      });
+    }, 1000);
   };
   const handleChange = ({ target: { value, name } }) => {
     switch (name) {
@@ -56,18 +60,20 @@ export const SelectCarBrand = () => {
       case 'mileageTo':
         setMileageTo(value.toString());
         break;
-        default:  console.log("Looks like you use inputs wrong'")
+      default:
+        console.log("Looks like you're using inputs incorrectly");
     }
   };
 
   const handleResetClick = () => {
     setBrand('');
     setPrice('');
-    setMileageFrom('');
-    setMileageTo('');
+    setMileageFrom("");
+    setMileageTo("");
     dispatch(
       setFilters({ brand: '', price: null, mileageFrom: null, mileageTo: null })
     );
+   
   };
 
   const handleBrandOptionClick = event => {
@@ -87,7 +93,9 @@ export const SelectCarBrand = () => {
       Number(mileageFrom) > mileageTo &&
       handleWrongValue(mileageFrom);
   };
-
+  const formatNumberWithCommas = (number) => {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
   return (
     <div className={css.container}>
       <div className={css.selectWrapper}>
@@ -106,19 +114,19 @@ export const SelectCarBrand = () => {
             className={css.select}
             placeholder="Enter the text"
           />
-        <div  className={`${css.optionList} ${
+          <div
+            className={`${css.optionList} ${
               isBrandOpen ? css.optionListOpen : css.optionListClosed
             }`}
-            onMouseDown={handleBrandOptionClick}>
-          <ul className={css.brandList}
-           
+            onMouseDown={handleBrandOptionClick}
           >
-            {carBrandOptions.map((brand, index) => (
-              <li className={css.brandOption} key={index}>
-                {brand}
-              </li>
-            ))}
-          </ul>
+            <ul className={css.brandList}>
+              {carBrandOptions.map((brand, index) => (
+                <li className={css.brandOption} key={index}>
+                  {brand}
+                </li>
+              ))}
+            </ul>
           </div>
           <svg
             className={`${css.selectIcon} ${
@@ -146,19 +154,19 @@ export const SelectCarBrand = () => {
             className={css.select}
             placeholder="Price $"
           />
-  <div className={`${css.optionList} ${
+          <div
+            className={`${css.optionList} ${
               isPriceOpen ? css.optionPriceListOpen : css.optionPriceListClosed
             }`}
-            onMouseDown={handlePriceOptionClick}>
-          <ul className={css.priceList}
-            
+            onMouseDown={handlePriceOptionClick}
           >
-            {priceOptions.map((num, index) => (
-              <li className={css.brandOption} key={index} value={num}>
-                {num}
-              </li>
-            ))}
-          </ul>
+            <ul className={css.priceList}>
+              {priceOptions.map((num, index) => (
+                <li className={css.brandOption} key={index} value={num}>
+                  {num}
+                </li>
+              ))}
+            </ul>
           </div>
           <svg
             className={`${css.selectIcon} ${
@@ -175,25 +183,29 @@ export const SelectCarBrand = () => {
           Car mileage / km
         </label>
         <div className={css.inputContainer}>
-       
+          <div className={css.wrapper}>
+          <span className={css.textLeft}>From</span>
           <input
             type="text"
             name="mileageFrom"
-            value={mileageFrom}
-            placeholder="From"
+            value={formatNumberWithCommas(mileageFrom)}
+            // value={mileageFrom}
             className={css.from}
             onChange={handleChange}
           />
-          
+          </div>
+          <div className={css.wrapper}>
+          <span className={css.textLeft}>To</span>
           <input
             type="text"
             name="mileageTo"
-            value={mileageTo}
-            placeholder="To"
+            value={formatNumberWithCommas(mileageTo)}
+            // value={mileageTo}
             className={css.to}
             onChange={handleChange}
             onBlur={handleBlur}
           />
+          </div>
         </div>
       </div>
       <ul className={css.buttonList}>

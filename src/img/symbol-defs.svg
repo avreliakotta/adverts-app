@@ -7,13 +7,11 @@
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.4" d="M24 8l-16 16M8 8l16 16"></path>
 </symbol>
 <symbol id="icon-chevron-down" viewBox="0 0 32 32">
-<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.2" d="M8 20l8-8 8 8"></path>
+<path  stroke-linecap="round" stroke-miterlimit="4"  stroke-width="3.2" d="M8 20l8-8 8 8"></path>
 </symbol>
 <symbol id="icon-Vector-1" viewBox="0 0 36 32">
 <path fill="#3470ff" style="fill: var(--color1, #3470ff); stroke: var(--color1, #3470ff)" stroke="#3470ff" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3" d="M31.26 4.916c-1.493-1.494-3.556-2.418-5.835-2.418s-4.342 0.924-5.835 2.418l-0 0-1.59 1.588-1.59-1.588c-1.491-1.48-3.545-2.394-5.812-2.394-4.557 0-8.252 3.695-8.252 8.252 0 2.267 0.914 4.321 2.395 5.813l-0-0.001 13.26 13.258 13.26-13.26c1.493-1.494 2.416-3.556 2.416-5.835s-0.923-4.341-2.416-5.835l0 0z"></path>
 </symbol>
-<symbol id="icon-chevron-up" viewBox="0 0 32 32">
-<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.2" d="M8 12l8 8 8-8"></path>
-</symbol>
+
 </defs>
 </svg>

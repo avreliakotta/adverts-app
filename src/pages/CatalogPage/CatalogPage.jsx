@@ -5,20 +5,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchAll } from '../../redux/adverts/adverts-operations';
 import CarList from '../../components/CarList/CarList';
 import { SelectCarBrand } from '../../components/Select/FilterCarBrand/FilterCarBrand';
-import { selectVisibleAdverts} from "../../redux/adverts/adverts-selectors";
-
-
+import { selectVisibleAdverts } from '../../redux/adverts/adverts-selectors';
 
 const CatalogPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  
 
   const dispatch = useDispatch();
-  const filteredAdverts = useSelector( selectVisibleAdverts);
+  const filteredAdverts = useSelector(selectVisibleAdverts);
 
   const adverts = useSelector(state => state.adverts.item);
-
- 
 
   useEffect(() => {
     dispatch(fetchAll({ page: currentPage, limit: 12 }));
@@ -30,30 +25,32 @@ const CatalogPage = () => {
     setCurrentPage(nextPage);
   };
 
-
-  
-  const totalPage=adverts.length;
-  const lastPage = totalPage/12 < currentPage;
+  const totalPage = adverts.length;
+  const lastPage = totalPage / 12 < currentPage;
 
   return (
     <div className={css.container}>
-      <SelectCarBrand
-        />
-    
-      <CarList  filteredAdverts={filteredAdverts}/>
+      <SelectCarBrand />
+
+      <CarList filteredAdverts={filteredAdverts} />
       {filteredAdverts.length === 0 && (
-        <div className={css.message}>There are no adverts for your request.Try setting other search parameters</div>
+        <div className={css.message}>
+          There are no adverts for your request.Try setting other search
+          parameters
+        </div>
       )}
-{!lastPage && filteredAdverts.length > 0 ?
-      (<button
-        type="button"
-        className={css.loadMoreBtn}
-        onClick={loadMoreAdverts}
-        disabled={adverts.loading}
-      >
-        Load more
-      </button>)
-      : ""}
+      {!lastPage && filteredAdverts.length > 0 ? (
+        <button
+          type="button"
+          className={css.loadMoreBtn}
+          onClick={loadMoreAdverts}
+          disabled={adverts.loading}
+        >
+          Load more
+        </button>
+      ) : (
+        ''
+      )}
     </div>
   );
 };

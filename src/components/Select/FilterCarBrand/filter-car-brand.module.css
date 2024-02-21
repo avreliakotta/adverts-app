@@ -29,8 +29,7 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 1.11;
-  
- 
+
   outline: none;
 }
 .iconWrapper {
@@ -47,29 +46,26 @@
   padding: 14px 8px 14px 18px;
   cursor: pointer;
   z-index: 100;
- 
-  
 }
 .optionListOpen {
   display: block;
   position: absolute;
   top: 52px;
   left: 0;
-  
 }
 .optionListClosed {
   display: none;
 }
-.brandList{
+.brandList {
   display: flex;
   flex-direction: column;
   gap: 8px;
   max-height: 244px;
   overflow-y: auto;
   cursor: pointer;
-  
 }
-.optionPriceListOpen,.optionPriceListClosed{
+.optionPriceListOpen,
+.optionPriceListClosed {
   border: 1px solid rgba(18, 20, 23, 0.05);
   border-radius: 14px;
   width: 125px;
@@ -80,28 +76,25 @@
   cursor: pointer;
   z-index: 100;
 }
-.optionPriceListOpen{
+.optionPriceListOpen {
   display: block;
   position: absolute;
   top: 52px;
   left: 0;
 }
-.optionPriceListClosed{
+.optionPriceListClosed {
   display: none;
 }
 
 .brandList::-webkit-scrollbar {
   width: 8px;
   height: 130px;
-  
-
 }
 .brandList::-webkit-scrollbar-thumb {
   background-color: rgba(18, 20, 23, 0.05);
   border-radius: 10px;
- 
 }
-.priceList{
+.priceList {
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -112,14 +105,10 @@
 .priceList::-webkit-scrollbar {
   width: 8px;
   height: 66px;
- 
- 
-  
 }
 .priceList::-webkit-scrollbar-thumb {
   background-color: rgba(18, 20, 23, 0.05);
   border-radius: 10px;
- 
 }
 
 .selectWrapper {
@@ -139,8 +128,8 @@
   font-size: 16px;
   line-height: 1.25;
 }
-.brandOption:not(:last-child){
-  margin-bottom:8px;
+.brandOption:not(:last-child) {
+  margin-bottom: 8px;
 }
 .searchBtn {
   border-radius: 12px;
@@ -169,6 +158,7 @@
   position: absolute;
   top: 14px;
   right: 14px;
+  transition :transform var(--transition-duration) var( --transition-time-function);
 }
 .buttonList {
   display: flex;
@@ -190,29 +180,45 @@
   width: 160px;
   height: 48px;
   background: var(--from-to-color);
-  text-align: center;
+  padding-left:86px;
+  outline: none;
   color: #121417;
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 18px;
   line-height: 1.11;
-  outline:none;
- }
+  
+}
 
-.to {
-  border-radius: 0 14px 14px 0;
-  width: 160px;
-  height: 48px;
-  outline:none;
-  border: none;
-  background: var(--from-to-color);
-  text-align: center;
+.wrapper{
+  position: relative;
+  
+}
+.textLeft{
+  position: absolute;
+  top:14px;
+  left:40px;
   color: #121417;
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 18px;
   line-height: 1.11;
 }
+
+.to {
+  border-radius: 0 14px 14px 0;
+  width: 160px;
+  height: 48px;
+  outline: none;
+  border: none;
+  background: var(--from-to-color);
+  padding-left:62px;
+   color: #121417;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.11;
+  }
 .label {
   font-family: var(--font-family);
   font-weight: 500;
@@ -224,4 +230,3 @@
   display: flex;
   align-items: center;
 }
-
