@@ -13,8 +13,7 @@ export  const fetchAdvertsAll =async(page=1,limit=12)=>{
             limit: limit
         }
     });
-    console.log("data",data);
-    return data;
+   return data;
 }
 
    

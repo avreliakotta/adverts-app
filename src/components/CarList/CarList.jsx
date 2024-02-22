@@ -1,13 +1,11 @@
 import css from './car-list.module.css';
-import { useSelector } from 'react-redux';
 import CarItem from '../CarItem/CarItem';
 
-import { selectAdverts } from '../../redux/adverts/adverts-selectors';
+
 
 const CarList = ({ filteredAdverts }) => {
-  const carDataList = useSelector(selectAdverts);
 
-  if (!carDataList) {
+  if (!filteredAdverts || filteredAdverts.length === 0) {
     return <div>Loading...</div>;
   }
 
@@ -15,19 +13,15 @@ const CarList = ({ filteredAdverts }) => {
     <>
       <ul className={css.list}>
         {filteredAdverts &&
-          filteredAdverts
-
-            // .filter(carData => !brand || carData.make === brand)
-
-            .map((carData, index) => {
-              return (
-                <CarItem
-                  key={`${carData.id}_${index}`}
-                  carData={carData}
-                  index={index}
-                />
-              );
-            })}
+          filteredAdverts.map((carData, index) => {
+            return (
+              <CarItem
+                key={`${carData.id}_${index}`}
+                carData={carData}
+                index={index}
+              />
+            );
+          })}
       </ul>
     </>
   );

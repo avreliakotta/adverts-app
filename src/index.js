@@ -9,6 +9,7 @@ import './index.css';
 import {persistor} from "./redux/store";
 import { HashRouter } from "react-router-dom";
 
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     {/* <BrowserRouter> */}

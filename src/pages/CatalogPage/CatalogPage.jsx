@@ -1,6 +1,9 @@
 import css from './catalog-page.module.css';
 import { useEffect, useState } from 'react';
-
+import {
+  selectAdverts,
+  selectIsLoading,
+} from '../../redux/adverts/adverts-selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAll } from '../../redux/adverts/adverts-operations';
 import CarList from '../../components/CarList/CarList';
@@ -13,20 +16,30 @@ const CatalogPage = () => {
   const dispatch = useDispatch();
   const filteredAdverts = useSelector(selectVisibleAdverts);
 
-  const adverts = useSelector(state => state.adverts.item);
+  const adverts = useSelector(selectAdverts);
+  const loading = useSelector(selectIsLoading);
 
   useEffect(() => {
+    console.log('Current page set to 1');
+    console.log(currentPage);
     dispatch(fetchAll({ page: currentPage, limit: 12 }));
   }, [dispatch, currentPage]);
+  useEffect(() => {
+    setCurrentPage(1); 
+  }, []);
 
   const loadMoreAdverts = () => {
     const nextPage = currentPage + 1;
-    dispatch(fetchAll({ page: nextPage, limit: 12 }));
+    dispatch(fetchAll({ currentPage: nextPage, limit: 12 }));
     setCurrentPage(nextPage);
   };
 
-  const totalPage = adverts.length;
-  const lastPage = totalPage / 12 < currentPage;
+  const totalPages = adverts.length;
+  // const lastPage = totalPages / 12 < currentPage;
+  const lastPage = totalPages < 12 || totalPages / 12 < currentPage;
+  console.log("lastPage",lastPage)
+  const showLoadMoreButton =
+    !lastPage && !loading && filteredAdverts.length > 0;
 
   return (
     <div className={css.container}>
@@ -39,17 +52,15 @@ const CatalogPage = () => {
           parameters
         </div>
       )}
-      {!lastPage && filteredAdverts.length > 0 ? (
+      {showLoadMoreButton && (
         <button
           type="button"
           className={css.loadMoreBtn}
           onClick={loadMoreAdverts}
-          disabled={adverts.loading}
+          disabled={loading}
         >
           Load more
         </button>
-      ) : (
-        ''
       )}
     </div>
   );

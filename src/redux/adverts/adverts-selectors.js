@@ -27,35 +27,6 @@ export const selectVisibleAdverts = createSelector(
         (!mileageTo || advert.mileage <= parseNumberWithCommas(mileageTo))
       );
     });
-    // return adverts
-    //   .filter(advert =>
-    //     brand !== ''
-    //       ? advert.make.toLowerCase().includes(brand.toLowerCase())
-    //       : advert
-    //   )
-    //   .filter(advert => {
-    //     const formattedPrice = Number(
-    //       advert.rentalPrice.slice(1, advert.rentalPrice.length)
-    //     );
-    //     return price ? formattedPrice <= Number(price) : advert;
-    //   })
-    //   .filter(advert => {
-    //     if (mileageFrom !== '') {
-    //       return advert.mileage >= parseNumberWithCommas(mileageFrom);
-    //     }
-    //     return true;
-    //   })
-    //   .filter(advert => {
-    //     if (mileageTo !== '') {
-    //       return advert.mileage <= parseNumberWithCommas(mileageTo);
-    //     }
-    //     return true;
-    //   });
-      // .filter(advert=>
-      //   Number(mileageFrom) ? advert.mileage >= Number(mileageFrom) : advert
-      // )
-      // .filter(advert =>
-      //   Number(mileageTo) ? advert.mileage <= Number(mileageTo) : advert
-      // );
+   
   }
 );
