@@ -35,8 +35,8 @@ const CatalogPage = () => {
   };
 
   const totalPages = adverts.length;
-  // const lastPage = totalPages / 12 < currentPage;
-  const lastPage = totalPages < 12 || totalPages / 12 < currentPage;
+  const lastPage = totalPages / 12 < currentPage;
+
   console.log("lastPage",lastPage)
   const showLoadMoreButton =
     !lastPage && !loading && filteredAdverts.length > 0;
